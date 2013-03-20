@@ -369,7 +369,7 @@ class Table(object):
             for col in range(0,stop):
                 self.column_names.append(columns[col][0])
                 col_type_prefix = columns[col][1][0:4].lower()
-                if col_type_prefix in ("char", "enum", "set("):
+                if col_type_prefix in ("char", "enum", "set(", "varc"):
                     self.text_columns.append(col)
                     col_format_values[col] = "'%s'"
                 elif col_type_prefix in ("blob", "text"):
