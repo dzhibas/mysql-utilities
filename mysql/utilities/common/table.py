@@ -48,7 +48,7 @@ def _parse_object_name(qualified_name):
     Returns tuple containing name split
     """
 
-    parts = re.match("(\w+)(?:\.(\w+))?", qualified_name)
+    parts = re.match("`?(\w+)`?(?:\.`?(\w+)`?)?", qualified_name)
     if parts:
         return parts.groups()
     else:
