@@ -323,8 +323,8 @@ def export_data(source, src_val, db_list, options):
         # Make a dictionary of the options
         access_options = {
             'skip_views'  : skip_views,
-            'skip_procs'  : skip_procs,
-            'skip_funcs'  : skip_funcs,
+            'skip_proc'   : skip_procs,
+            'skip_func'   : skip_funcs,
             'skip_grants' : skip_grants,
             'skip_events' : skip_events,
         }
