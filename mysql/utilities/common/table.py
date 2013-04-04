@@ -463,7 +463,8 @@ class Table(object):
         # a double single quote. This fixes SQL errors related to using
         # single quotes in a string value that is single quoted. For example,
         # we change 'this' is it' to 'this'' is it'
-        [values[col].replace("'", "''") for col in self.text_columns]
+        for col in self.text_columns:
+            values[col] = values[col].replace("'", "''")
         
         # Build string
         val_str = self.column_format % tuple(values)
