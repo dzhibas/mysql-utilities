@@ -24,6 +24,9 @@ import re
 import sys
 import mysql.connector
 from mysql.utilities.exception import UtilError
+from mysql.connector.conversion import MySQLConverter
+
+escape = MySQLConverter().escape
 
 # Constants
 _MAXPACKET_SIZE = 1024 * 1024
@@ -465,7 +468,7 @@ class Table(object):
         # we change 'this' is it' to 'this'' is it'
         for col in self.text_columns:
             if values[col] != None:
-                values[col] = values[col].replace("'", "''")
+                values[col] = escape(values[col])
         
         # Build string
         val_str = self.column_format % tuple(values)
