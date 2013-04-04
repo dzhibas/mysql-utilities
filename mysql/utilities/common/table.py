@@ -464,7 +464,8 @@ class Table(object):
         # single quotes in a string value that is single quoted. For example,
         # we change 'this' is it' to 'this'' is it'
         for col in self.text_columns:
-            values[col] = values[col].replace("'", "''")
+            if values[col] != None:
+                values[col] = values[col].replace("'", "''")
         
         # Build string
         val_str = self.column_format % tuple(values)
